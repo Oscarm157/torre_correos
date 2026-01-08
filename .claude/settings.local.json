@@ -9,7 +9,11 @@
       "Bash(findstr:*)",
       "Bash(npm install:*)",
       "Bash(node optimize-images.js:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRefactorización completa Torre Correos\n\n✨ Mejoras principales:\n- Optimización de imágenes: 7.98 MB → 3.48 MB \\(56.4% reducción\\)\n- CSS modularizado en 6 archivos organizados\n- JavaScript dividido en 8 módulos ES6\n- Responsive images con srcset \\(4 tamaños\\)\n- Estructura de archivos reorganizada\n- SEO optimizado \\(sitemap, robots.txt, manifest.json\\)\n- Meta tags Open Graph y Twitter Cards\n- WhatsApp configurado: +52 664 123 4567\n- Lazy loading implementado\n- Vercel.json con cache headers optimizados\n\n📁 Nueva estructura:\n- styles/ - CSS modular \\(6 módulos + main.css\\)\n- js/ - JavaScript modular \\(8 módulos ES6\\)\n- assets/ - Imágenes, videos organizados\n- Documentación completa \\(README, guías, checklist\\)\n\n🚀 Listo para producción\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
