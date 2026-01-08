@@ -1,0 +1,16 @@
+# Vercel - Ignorar archivos innecesarios
+
+# Dependencies
+node_modules/
+
+# Development
+.dev/
+referencias/
+
+# No deployear carpetas antiguas (ya eliminadas del repo)
+imagenes/
+amenidades/
+info-proyecto/
+
+# Claude
+.claude/
