@@ -1,0 +1,372 @@
+/* ============================================
+   COMPONENT STYLES
+   Buttons, Labels, Cards, Gallery, Forms, Modals
+   ============================================ */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.btn-nav {
+    padding: 12px 24px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Section Labels */
+.section-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+}
+
+.section-label--light {
+    color: var(--color-accent-light);
+}
+
+.section-title {
+    margin-bottom: 24px;
+}
+
+.section-title--light {
+    color: var(--color-white);
+}
+
+/* Value Cards */
+.value-card {
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-medium);
+}
+
+@media (min-width: 768px) {
+    .value-card {
+        padding: 40px 24px;
+    }
+}
+
+.value-card:hover {
+    background-color: var(--color-background);
+}
+
+.value-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .value-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 24px;
+    }
+}
+
+.value-icon svg {
+    width: 36px;
+    height: 36px;
+    color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+    .value-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.value-card h3 {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+    .value-card h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+}
+
+.value-card p {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .value-card p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+}
+
+/* Gallery */
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(26, 39, 68, 0.8) 0%,
+        transparent 50%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: var(--color-white);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-medium);
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all var(--transition-medium);
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-btn svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-white);
+}
+
+/* Forms */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 16px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid var(--color-background-alt);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    background-color: var(--color-background);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: var(--color-white);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Cal modal */
+.cal-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+}
+.cal-modal.active { display:flex; }
+.cal-modal-content {
+    background: rgba(255,255,255,0.03);
+    padding: 20px;
+    border-radius: 8px;
+    width: min(1100px, 96%);
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: var(--shadow-strong);
+}
+.cal-modal .cal-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 28px;
+    cursor: pointer;
+}
+.cal-skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    color: var(--color-white);
+}
+.cal-skeleton .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top-color: var(--color-white);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}

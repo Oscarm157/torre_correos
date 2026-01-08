@@ -1,0 +1,17 @@
+{
+  "name": "Torre Correos - Departamentos Premium Tijuana",
+  "short_name": "Torre Correos",
+  "description": "Residencias, oficinas y comercios en el corazón de Tijuana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2744",
+  "theme_color": "#b8965c",
+  "icons": [
+    {
+      "src": "assets/images/logos/Logo_Torre_Correos.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

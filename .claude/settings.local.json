@@ -4,7 +4,12 @@
       "Bash(mkdir:*)",
       "Bash(python -m http.server:*)",
       "Bash(npx serve:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(npm install:*)",
+      "Bash(node optimize-images.js:*)",
+      "Bash(git add:*)"
     ]
   }
 }

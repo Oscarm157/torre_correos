@@ -1,0 +1,412 @@
+/* ============================================
+   PREMIUM ANIMATIONS - Mobile Optimized
+   Keyframes, Scroll Reveals, Hover Effects, Transitions
+   ============================================ */
+
+/* Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Hero Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.25s; }
+.fade-in:nth-child(3) { animation-delay: 0.4s; }
+.fade-in:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero background subtle zoom */
+.hero-bg img {
+    animation: heroZoom 20s ease-out forwards;
+}
+
+@keyframes heroZoom {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+/* Scroll Reveal Base */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for gallery and cards */
+.reveal[data-delay="1"] { transition-delay: 0.1s; }
+.reveal[data-delay="2"] { transition-delay: 0.2s; }
+.reveal[data-delay="3"] { transition-delay: 0.3s; }
+.reveal[data-delay="4"] { transition-delay: 0.4s; }
+.reveal[data-delay="5"] { transition-delay: 0.5s; }
+.reveal[data-delay="6"] { transition-delay: 0.6s; }
+
+/* Reveal from left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Reveal from right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale reveal for images */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Clip reveal effect */
+.reveal-clip {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-clip.active {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Text split animation for titles */
+.split-text .word {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.split-text .word-inner {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.split-text.active .word-inner {
+    transform: translateY(0);
+}
+
+.split-text .word:nth-child(1) .word-inner { transition-delay: 0s; }
+.split-text .word:nth-child(2) .word-inner { transition-delay: 0.05s; }
+.split-text .word:nth-child(3) .word-inner { transition-delay: 0.1s; }
+.split-text .word:nth-child(4) .word-inner { transition-delay: 0.15s; }
+.split-text .word:nth-child(5) .word-inner { transition-delay: 0.2s; }
+.split-text .word:nth-child(6) .word-inner { transition-delay: 0.25s; }
+
+/* Button hover effects */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
+/* Enhanced card hover */
+.value-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.value-card:hover::before {
+    transform: scaleX(1);
+}
+
+.value-card:hover .value-icon svg {
+    animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Gallery hover enhancements */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent);
+    opacity: 0;
+    mix-blend-mode: overlay;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 0.3;
+}
+
+.gallery-overlay span {
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover .gallery-overlay span {
+    transform: translateY(0);
+}
+
+/* Amenity items stagger */
+.amenity-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.amenity-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.amenity-item:hover::after {
+    transform: scaleY(1);
+}
+
+.amenity-item:hover .amenity-icon {
+    background-color: var(--color-accent);
+}
+
+.amenity-item:hover .amenity-icon svg {
+    color: var(--color-white);
+}
+
+.amenity-icon {
+    transition: all 0.3s ease;
+}
+
+/* Floating animation for WhatsApp button */
+.whatsapp-btn {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.whatsapp-btn:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+/* Image parallax on scroll (desktop only) */
+@media (min-width: 1024px) {
+    .parallax-img {
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
+}
+
+/* Form input animations */
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(184, 150, 92, 0.15);
+}
+
+/* Label float effect */
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    transition: all 0.3s ease;
+}
+
+/* Section divider line animation */
+.section-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 24px auto;
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.reveal.active .section-divider,
+.section-divider.active {
+    transform: scaleX(1);
+}
+
+/* Counter animation placeholder */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Smooth image loading */
+.img-loading {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.img-loading.loaded {
+    opacity: 1;
+}
+
+/* Navigation link underline */
+.nav-menu a:not(.btn) {
+    position: relative;
+}
+
+.nav-menu a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu a:not(.btn):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Footer links hover */
+.footer-links a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent-light);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Pulse effect for CTA */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(184, 150, 92, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(184, 150, 92, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(184, 150, 92, 0); }
+}
+
+/* Mobile optimizations - reduce animations */
+@media (max-width: 768px) {
+    .hero-bg img {
+        animation: none;
+        transform: scale(1);
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        transform: translateY(30px);
+    }
+
+    .reveal-scale {
+        transform: scale(0.95);
+    }
+
+    .whatsapp-btn {
+        animation: none;
+    }
+
+    .value-card::before {
+        display: none;
+    }
+}
