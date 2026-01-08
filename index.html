@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre Correos | El nuevo estándar de vida urbana en Tijuana</title>
+    <meta name="description" content="Torre Correos: Residencias, oficinas y comercios en el corazón de Tijuana. Un desarrollo de usos mixtos que redefine la vida urbana. Por Probien Bienes Exclusivos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://app.cal.com" crossorigin>
+    <link rel="preload" as="script" href="https://app.cal.com/embed/embed.js" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <img src="info-proyecto/Logo_Torre_Correos.jpg" alt="Torre Correos">
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#amenidades">Amenidades</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto" class="btn btn-nav">Contactar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="imagenes/torre_correos_ext_04.webp" alt="Torre Correos Fachada">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <span class="hero-tagline fade-in">Tijuana, B.C.</span>
+            <h1 class="hero-title fade-in">El nuevo estándar<br>de vida urbana</h1>
+            <p class="hero-subtitle fade-in">Una comunidad urbana autosuficiente donde vivir, trabajar y convivir convergen en perfecta armonía.</p>
+            <div class="hero-cta fade-in">
+                <button
+                    id="calButton"
+                    class="btn btn-primary"
+                    data-cal-link="oscar-arredondo-fs6wzu/agenda-cita-torre-correos"
+                    data-cal-namespace="agenda-cita-torre-correos"
+                    data-cal-config='{"layout":"month_view"}'
+                    aria-controls="calModal"
+                    aria-expanded="false">Agenda tu visita</button>
+                <a href="#proyecto" class="btn btn-outline">Conoce más</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Propuesta de Valor -->
+    <section class="value-props">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6"/>
+                        </svg>
+                    </div>
+                    <h3>Diseño Atemporal</h3>
+                    <p>Residencias y oficinas con arquitectura que trasciende tendencias</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Bienestar Integral</h3>
+                    <p>Amenidades y servicios pensados para tu calidad de vida</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Conectividad Estratégica</h3>
+                    <p>Ubicación privilegiada con acceso a los puntos clave de la ciudad</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Comunidad Vibrante</h3>
+                    <p>Un ecosistema que fomenta conexiones auténticas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre el Proyecto -->
+    <section id="proyecto" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal-left">
+                    <span class="section-label">Sobre el Proyecto</span>
+                    <h2 class="section-title">Más que un edificio,<br>una nueva forma de ciudad</h2>
+                    <p class="about-text">Torre Correos integra residencias, oficinas y espacios comerciales, junto con una cuidadosa selección de amenidades y servicios de bienestar, permitiendo que las necesidades cotidianas se resuelvan dentro del mismo edificio.</p>
+                    <p class="about-text">Ubicado en proximidad al histórico edificio de correos de Tijuana, el proyecto establece un diálogo respetuoso entre pasado y presente, reinterpretando el legado histórico del sitio desde una visión contemporánea.</p>
+                    <div class="about-developer">
+                        <span>Desarrollado por</span>
+                        <strong>Probien Bienes Exclusivos</strong>
+                    </div>
+                </div>
+                <div class="about-images reveal-right">
+                    <div class="about-img-main">
+                        <img src="imagenes/torre_correos_int_01.webp" alt="Lobby Torre Correos">
+                    </div>
+                    <div class="about-img-secondary">
+                        <img src="imagenes/torre_correos_int_04.webp" alt="Concierge Torre Correos">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arquitectura -->
+    <section class="architecture">
+        <div class="architecture-bg">
+            <img src="imagenes/torre_correos_ext_01.webp" alt="Arquitectura Torre Correos">
+        </div>
+        <div class="architecture-overlay"></div>
+        <div class="container">
+            <div class="architecture-content reveal">
+                <span class="section-label section-label--light">Arquitectura</span>
+                <h2 class="section-title section-title--light">Expresión material<br>contemporánea</h2>
+                <p>La expresión arquitectónica se define por una paleta de materiales sofisticada: concreto en distintas texturas y profundidades, complementado con láminas perforadas de acero inoxidable que generan apertura visual y control solar.</p>
+                <p>El equilibrio entre solidez y ligereza construye una imagen arquitectónica contundente, moderna y perdurable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Galería</span>
+                <h2 class="section-title">Descubre cada espacio</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item--large reveal" data-img="imagenes/torre_correos_ext_04.webp">
+                    <img src="imagenes/torre_correos_ext_04.webp" alt="Fachada Torre Correos">
+                    <div class="gallery-overlay">
+                        <span>Fachada Principal</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-img="imagenes/torre_correos_int_01.webp">
+                    <img src="imagenes/torre_correos_int_01.webp" alt="Lobby">
+                    <div class="gallery-overlay">
+                        <span>Lobby</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-img="imagenes/torre_correos_int_02.webp">
+                    <img src="imagenes/torre_correos_int_02.webp" alt="Recepción">
+                    <div class="gallery-overlay">
+                        <span>Recepción</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-img="imagenes/torre_correos_int_06.webp">
+                    <img src="imagenes/torre_correos_int_06.webp" alt="Departamento">
+                    <div class="gallery-overlay">
+                        <span>Residencia Tipo</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-img="imagenes/torre_correos_int_04.webp">
+                    <img src="imagenes/torre_correos_int_04.webp" alt="Concierge">
+                    <div class="gallery-overlay">
+                        <span>Concierge</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal" data-img="imagenes/torre_correos_ext_01.webp">
+                    <img src="imagenes/torre_correos_ext_01.webp" alt="Comercios">
+                    <div class="gallery-overlay">
+                        <span>Nivel Comercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+        <img src="" alt="Imagen ampliada" class="lightbox-img">
+    </div>
+
+    <!-- Cal.com Modal (prefetch + skeleton) -->
+    <div class="cal-modal" id="calModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Calendario">
+        <div class="cal-modal-content">
+            <button class="cal-modal-close" aria-label="Cerrar calendario">&times;</button>
+            <div class="cal-modal-body">
+                <div class="cal-skeleton">
+                    <div class="spinner" aria-hidden="true"></div>
+                    <p>Cargando calendario…</p>
+                </div>
+                <div id="calEmbedContainer" class="cal-embed-container" hidden></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Amenidades - Modern Interactive Section -->
+    <section id="amenidades" class="amenities-modern">
+        <div class="amenities-header">
+            <div class="container">
+                <span class="section-label reveal">Amenidades</span>
+                <h2 class="section-title reveal">Bienestar en cada nivel</h2>
+                <p class="amenities-subtitle reveal">El nivel de azotea concentra una curaduría de amenidades enfocadas en el bienestar y la convivencia</p>
+            </div>
+        </div>
+
+        <!-- Interactive Amenities Showcase -->
+        <div class="amenities-showcase">
+            <div class="amenities-tabs" role="tablist">
+                <button class="amenity-tab active" data-tab="bochas" role="tab" aria-selected="true" aria-controls="amenity-bochas" id="tab-bochas">
+                    <span class="tab-number">01</span>
+                    <span class="tab-title">Cancha de Bochas</span>
+                    <span class="tab-line"></span>
+                </button>
+                <button class="amenity-tab" data-tab="asador" role="tab" aria-selected="false" aria-controls="amenity-asador" id="tab-asador">
+                    <span class="tab-number">02</span>
+                    <span class="tab-title">Áreas de Asador</span>
+                    <span class="tab-line"></span>
+                </button>
+                <button class="amenity-tab" data-tab="yoga" role="tab" aria-selected="false" aria-controls="amenity-yoga" id="tab-yoga">
+                    <span class="tab-number">03</span>
+                    <span class="tab-title">Zona de Yoga</span>
+                    <span class="tab-line"></span>
+                </button>
+                <button class="amenity-tab" data-tab="perros" role="tab" aria-selected="false" aria-controls="amenity-perros" id="tab-perros">
+                    <span class="tab-number">04</span>
+                    <span class="tab-title">Parque para Perros</span>
+                    <span class="tab-line"></span>
+                </button>
+                <button class="amenity-tab" data-tab="verde" role="tab" aria-selected="false" aria-controls="amenity-verde" id="tab-verde">
+                    <span class="tab-number">05</span>
+                    <span class="tab-title">Áreas Verdes</span>
+                    <span class="tab-line"></span>
+                </button>
+            </div>
+
+            <div class="amenities-content-area">
+                <div class="amenity-panel active" data-panel="bochas" id="amenity-bochas" role="tabpanel" aria-labelledby="tab-bochas" aria-hidden="false" tabindex="-1">
+                    <div class="panel-image">
+                        <img src="amenidades/ec640549801f65b801ca5f5af45be2d4 (1) (1).jpg" alt="Cancha de Bochas real en rooftop Torre Correos">
+                        <div class="panel-image-overlay"></div>
+                    </div>
+                    <div class="panel-info">
+                        <div class="panel-number">01</div>
+                        <h3>Cancha de Bochas</h3>
+                        <p>Un espacio único de recreación y convivencia que fomenta la interacción entre vecinos. Diseñado para disfrutar momentos de ocio en un ambiente relajado con vistas panorámicas de la ciudad.</p>
+                    </div>
+                </div>
+
+                <div class="amenity-panel" data-panel="asador" id="amenity-asador" role="tabpanel" aria-labelledby="tab-asador" aria-hidden="true" tabindex="-1">
+                    <div class="panel-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Área de asador en rooftop">
+                        <div class="panel-image-overlay"></div>
+                    </div>
+                    <div class="panel-info">
+                        <div class="panel-number">02</div>
+                        <h3>Áreas de Asador</h3>
+                        <p>Espacios completamente equipados para reuniones familiares y sociales. Perfectos para celebrar momentos especiales mientras disfrutas de la brisa y las vistas de Tijuana.</p>
+                    </div>
+                </div>
+
+                <div class="amenity-panel" data-panel="yoga" id="amenity-yoga" role="tabpanel" aria-labelledby="tab-yoga" aria-hidden="true" tabindex="-1">
+                    <div class="panel-image">
+                        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1200&q=80" alt="Zona de yoga en rooftop">
+                        <div class="panel-image-overlay"></div>
+                    </div>
+                    <div class="panel-info">
+                        <div class="panel-number">03</div>
+                        <h3>Zona de Yoga</h3>
+                        <p>Un santuario de tranquilidad para la práctica de yoga y meditación. Espacios diseñados para conectar con tu bienestar interior mientras contemplas el horizonte.</p>
+                    </div>
+                </div>
+
+                <div class="amenity-panel" data-panel="perros" id="amenity-perros" role="tabpanel" aria-labelledby="tab-perros" aria-hidden="true" tabindex="-1">
+                    <div class="panel-image">
+                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80" alt="Parque para perros en rooftop">
+                        <div class="panel-image-overlay"></div>
+                    </div>
+                    <div class="panel-info">
+                        <div class="panel-number">04</div>
+                        <h3>Parque para Perros</h3>
+                        <p>Un área exclusiva y segura para que tus mascotas disfruten al aire libre. Diseñado pensando en el bienestar de los miembros más consentidos de la familia.</p>
+                    </div>
+                </div>
+
+                <div class="amenity-panel" data-panel="verde" id="amenity-verde" role="tabpanel" aria-labelledby="tab-verde" aria-hidden="true" tabindex="-1">
+                    <div class="panel-image">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80" alt="Áreas verdes en rooftop">
+                        <div class="panel-image-overlay"></div>
+                    </div>
+                    <div class="panel-info">
+                        <div class="panel-number">05</div>
+                        <h3>Áreas Verdes</h3>
+                        <p>Jardines íntimos y recorridos peatonales panorámicos diseñados para fomentar momentos de encuentro, descanso y contemplación de la ciudad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amenities Counter -->
+        <div class="amenities-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item reveal">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Amenidades</span>
+                    </div>
+                    <div class="stat-item reveal">
+                        <span class="stat-number" data-count="360">0</span>
+                        <span class="stat-suffix">°</span>
+                        <span class="stat-label">Vistas panorámicas</span>
+                    </div>
+                    <div class="stat-item reveal">
+                        <span class="stat-number" data-count="24">0</span>
+                        <span class="stat-suffix">/7</span>
+                        <span class="stat-label">Acceso a rooftop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interiores -->
+    <section class="interiors">
+        <div class="interiors-image">
+            <img src="imagenes/torre_correos_int_06.webp" alt="Interior Departamento">
+        </div>
+        <div class="interiors-content reveal-right">
+            <span class="section-label">Interiores</span>
+            <h2 class="section-title">Atmósfera atemporal</h2>
+            <p>Los interiores están concebidos para transmitir una atmósfera elegante y cálida. La selección de materiales y acabados responde tanto a criterios estéticos como funcionales, creando espacios acogedores y refinados.</p>
+            <ul class="interiors-features">
+                <li>Acabados de alta calidad</li>
+                <li>Iluminación natural optimizada</li>
+                <li>Vistas panorámicas de la ciudad</li>
+                <li>Diseño funcional y elegante</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="location">
+        <div class="container">
+            <div class="location-grid">
+                <div class="location-content reveal-left">
+                    <span class="section-label">Ubicación</span>
+                    <h2 class="section-title">En el corazón<br>de Tijuana</h2>
+                    <p class="location-text">Torre Correos cuenta con una conectividad estratégica hacia los principales puntos de Tijuana y la frontera, posicionándose como una opción ideal para quienes valoran la eficiencia y el acceso inmediato a los nodos clave de la ciudad.</p>
+                    <address class="location-address">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div>
+                            <strong>Av. Negrete 2117</strong>
+                            <span>Zona Centro, 22000 Tijuana, B.C.</span>
+                        </div>
+                    </address>
+                    <a href="https://maps.app.goo.gl/NtT6mQSnUaLjRTPn9" target="_blank" rel="noopener" class="btn btn-secondary">Ver en Google Maps</a>
+                </div>
+                <div class="location-map reveal-scale">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3364.8!2d-117.0383!3d32.5288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9490f1d5c7f8d%3A0x0!2sAv.%20Negrete%202117%2C%20Zona%20Centro%2C%2022000%20Tijuana%2C%20B.C.!5e0!3m2!1ses!2smx!4v1699999999999"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="contact-bg"><img src="imagenes/torre_correos_ext_01.webp" alt="Torre Correos"></div>
+        <div class="contact-overlay"></div>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <span class="section-label section-label--light">Contacto</span>
+                    <h2 class="section-title section-title--light">Comienza a vivir<br>diferente</h2>
+                    <p class="contact-text">Agenda una visita a nuestro showroom y descubre en persona lo que Torre Correos tiene para ofrecerte.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Av. Negrete 2117, Zona Centro, Tijuana</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje (opcional)</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Quiero más información</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="info-proyecto/Logo_Torre_Correos.jpg" alt="Torre Correos" class="footer-logo">
+                    <p class="footer-tagline">El nuevo estándar de vida urbana en Tijuana</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#proyecto">Proyecto</a>
+                    <a href="#galeria">Galería</a>
+                    <a href="#amenidades">Amenidades</a>
+                    <a href="#ubicacion">Ubicación</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-developer">
+                    <span>Desarrollado por</span>
+                    <strong>Probien Bienes Exclusivos</strong>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Torre Correos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20obtener%20más%20información%20sobre%20Torre%20Correos" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+
+    <!-- Cal.com embed code -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "agenda-cita-torre-correos", {origin:"https://app.cal.com"});
+      Cal.ns["agenda-cita-torre-correos"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+</body>
+</html>
