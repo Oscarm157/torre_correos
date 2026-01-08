@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://app.cal.com" crossorigin>
     <link rel="preload" as="script" href="https://app.cal.com/embed/embed.js" crossorigin>
+    <script src="https://app.cal.com/embed/embed.js" async crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -50,9 +51,7 @@
                     class="btn btn-primary"
                     data-cal-link="oscar-arredondo-fs6wzu/agenda-cita-torre-correos"
                     data-cal-namespace="agenda-cita-torre-correos"
-                    data-cal-config='{"layout":"month_view"}'
-                    aria-controls="calModal"
-                    aria-expanded="false">Agenda tu visita</button>
+                    data-cal-config='{"layout":"month_view"}'>Agenda tu cita</button>
                 <a href="#proyecto" class="btn btn-outline">Conoce más</a>
             </div>
         </div>
@@ -478,13 +477,18 @@
         </svg>
     </a>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
-    <!-- Cal.com embed code -->
-    <script type="text/javascript">
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", "agenda-cita-torre-correos", {origin:"https://app.cal.com"});
-      Cal.ns["agenda-cita-torre-correos"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    </script>
+        <!-- Cal element-click embed code begins -->
+        <script type="text/javascript">
+            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+            Cal("init", "agenda-cita-torre-correos", {origin:"https://app.cal.com"});
+            // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+            // `data-cal-link="oscar-arredondo-fs6wzu/agenda-cita-torre-correos"`
+            // data-cal-namespace="agenda-cita-torre-correos"
+            // `data-cal-config='{"layout":"month_view"}'`
+            Cal.ns["agenda-cita-torre-correos"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal element-click embed code ends -->
 </body>
 </html>

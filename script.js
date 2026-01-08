@@ -391,32 +391,7 @@ document.head.appendChild(shakeStyles);
 
 /* Cal.com Prefetch & Modal */
 function initCalPrefetch() {
-    const calButton = document.querySelector('[data-cal-namespace]');
-    if (!calButton) return;
-    const namespace = calButton.dataset.calNamespace || calButton.getAttribute('data-cal-namespace');
-    const calLink = calButton.dataset.calLink || calButton.getAttribute('data-cal-link');
-    let scriptLoading = false;
-
-    function prefetchCalScript() {
-        if (window._calPrefetched || scriptLoading) return;
-        if (navigator.connection && navigator.connection.saveData) return; // respect Save-Data
-        scriptLoading = true;
-        const s = document.createElement('script');
-        s.src = 'https://app.cal.com/embed/embed.js';
-        s.async = true;
-        s.crossOrigin = 'anonymous';
-        s.onload = () => { window._calPrefetched = true; scriptLoading = false; };
-        s.onerror = () => { scriptLoading = false; };
-        document.head.appendChild(s);
-    }
-
-    calButton.addEventListener('pointerenter', prefetchCalScript, { once: true });
-    calButton.addEventListener('touchstart', prefetchCalScript, { once: true, passive: true });
-
-    calButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        openCalModal(namespace, calLink);
-    });
+    // Acción eliminada para usar solo el embed oficial de Cal.com
 }
 
 function openCalModal(namespace, calLink) {
