@@ -773,6 +773,10 @@
         height: 250px;
     }
 
+    .panel-image img {
+        display: block;
+    }
+
     .stats-grid {
         grid-template-columns: 1fr;
         gap: 32px;
