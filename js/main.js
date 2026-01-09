@@ -8,6 +8,7 @@ import { initGallery } from './gallery.js';
 import { initAnimations } from './animations.js';
 import { initAmenities } from './amenities.js';
 import { initForm } from './form.js';
+import { initHeroVideo } from './hero-video.js';
 import { CONFIG } from './config.js';
 
 /**
@@ -15,6 +16,9 @@ import { CONFIG } from './config.js';
  * Called when DOM is fully loaded
  */
 function init() {
+    // Hero video (must be early for smooth loading)
+    initHeroVideo();
+
     // Header and navigation (must be first for proper layout)
     initHeader();
     initMobileMenu();
