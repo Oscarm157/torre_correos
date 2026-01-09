@@ -819,17 +819,17 @@
 .calendar-wrapper {
     max-width: 1000px;
     margin: 0 auto;
-    min-height: 600px;
+    min-height: 750px;
     background: var(--color-white);
     border-radius: 8px;
     box-shadow: var(--shadow-medium);
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Responsive calendar height */
 @media (max-width: 768px) {
     .calendar-wrapper {
-        min-height: 500px;
+        min-height: 700px;
     }
 }
 
