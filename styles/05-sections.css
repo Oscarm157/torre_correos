@@ -76,6 +76,16 @@
     text-align: center;
     color: var(--color-white);
     padding-top: 80px;
+    width: 100%;
+}
+
+/* Ajuste de padding para mobile - mejor centrado vertical */
+@media (max-width: 768px) {
+    .hero-content {
+        padding-top: 0;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
 .hero-tagline {
@@ -104,6 +114,15 @@
     font-weight: 300;
     opacity: 0.9;
     line-height: 1.8;
+}
+
+/* Ajuste de tamaños de texto para mobile */
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 8px;
+    }
 }
 
 .hero-cta {
