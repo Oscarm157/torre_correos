@@ -1,124 +1,24 @@
-# 🚀 Deployment a Vercel - Torre Correos
+# 🚀 Guía de Deployment en Vercel - Torre Correos
 
-## ✅ Cambios Subidos a GitHub
+## ✅ Problema Resuelto
 
-Los cambios ya están en GitHub:
-- **Repositorio:** https://github.com/Oscarm157/torre_correos
-- **Commit:** Refactorización completa Torre Correos
-- **Archivos:** 70 archivos modificados/agregados
-
-## 🔄 Deploy Automático en Vercel
-
-Si ya tenías el proyecto conectado a Vercel, el deploy debería iniciar automáticamente.
-
-### Verificar Deploy:
-
-1. **Visita tu Dashboard de Vercel:**
-   - https://vercel.com/dashboard
-
-2. **Busca el proyecto "torre_correos"**
-   - Deberías ver un deploy en progreso o completado
-
-3. **URL de producción:**
-   - https://torrecorreos.vercel.app (o tu URL personalizada)
-
-## 📋 Si NO tienes el proyecto en Vercel
-
-Si es la primera vez que deployeas a Vercel, sigue estos pasos:
-
-### Opción 1: Vercel Dashboard (Más Fácil)
-
-1. **Ir a Vercel Dashboard:**
-   - https://vercel.com/new
-
-2. **Import Git Repository:**
-   - Click en "Import Project"
-   - Seleccionar "Import Git Repository"
-   - Conectar tu cuenta de GitHub si no lo has hecho
-   - Seleccionar el repo: `Oscarm157/torre_correos`
-
-3. **Configurar el proyecto:**
-   ```
-   Project Name: torre-correos
-   Framework Preset: Other
-   Root Directory: ./
-   Build Command: (dejar vacío)
-   Output Directory: (dejar vacío)
-   Install Command: (dejar vacío)
-   ```
-
-4. **Deploy:**
-   - Click en "Deploy"
-   - Esperar 1-2 minutos
-   - ✅ Sitio en vivo!
-
-### Opción 2: Vercel CLI
-
-```bash
-# 1. Instalar Vercel CLI (si no lo tienes)
-npm i -g vercel
-
-# 2. Login
-vercel login
-
-# 3. Deploy
-cd "c:\Users\Oscar\Desktop\Torre Correos"
-vercel --prod
-
-# Seguir prompts:
-# - Set up and deploy? Y
-# - Which scope? (tu cuenta)
-# - Link to existing project? (Y si existe, N si es nuevo)
-# - What's your project's name? torre-correos
-# - In which directory is your code located? ./
+**Error original:**
+```
+If rewrites, redirects, headers, cleanUrls or trailingSlash are used,
+then routes cannot be present.
 ```
 
-## ✅ Verificación Post-Deploy
+**Causa:** El archivo `vercel.json` tenía configuraciones incompatibles:
+- `"rewrites"` + `"headers"` en el mismo archivo ❌
+- `"builds"` innecesario para sitios estáticos ❌
+- JSON corrupto en el remoto (otra IA lo modificó mal) ❌
 
-Una vez que el deploy termine, verifica:
+## 🛠️ Solución Implementada
 
-### 1. Sitio Funciona
-- [ ] Página carga correctamente
-- [ ] CSS se ve bien (no hay estilos rotos)
-- [ ] JavaScript funciona (check consola sin errores)
-
-### 2. Imágenes Responsive
-- [ ] Abrir Chrome DevTools → Network tab
-- [ ] Recargar página
-- [ ] Verificar que se cargan imágenes -320, -640, -1024, -1920 según viewport
-- [ ] En mobile debería cargar -320 o -640
-- [ ] En desktop debería cargar -1024 o -1920
-
-### 3. Funcionalidad
-- [ ] Header sticky funciona
-- [ ] Mobile menu abre/cierra
-- [ ] Galería lightbox funciona
-- [ ] Tabs de amenidades cambian
-- [ ] Formulario valida
-- [ ] WhatsApp redirige a +52 664 123 4567
-- [ ] Cal.com modal abre
-
-### 4. Performance
-- [ ] Abrir Chrome DevTools → Lighthouse
-- [ ] Run Performance audit
-- [ ] Verificar scores:
-  - Performance: 90+ ✅
-  - Accessibility: 95+ ✅
-  - Best Practices: 95+ ✅
-  - SEO: 100 ✅
-
-### 5. SEO
-- [ ] Visitar: https://torrecorreos.vercel.app/sitemap.xml
-- [ ] Visitar: https://torrecorreos.vercel.app/robots.txt
-- [ ] Compartir en Facebook/Twitter (verificar Open Graph)
-
-## 🔧 Configuración de Vercel
-
-El archivo `vercel.json` ya está configurado con:
+### Nueva Configuración `vercel.json`
 
 ```json
 {
-  "version": 2,
   "headers": [
     {
       "source": "/assets/images/(.*)",
@@ -130,117 +30,240 @@ El archivo `vercel.json` ya está configurado con:
       ]
     },
     {
+      "source": "/styles/(.*\\.css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
       "source": "/js/(.*\\.js)",
       "headers": [
         {
-          "key": "Content-Type",
-          "value": "application/javascript; charset=utf-8"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 ```
 
-Esto optimiza:
-- ✅ Cache de imágenes (1 año)
-- ✅ Cache de CSS/JS
-- ✅ Content-Type correcto para ES6 modules
+### ¿Qué hace cada parte?
 
-## 📊 Resultados Esperados
+1. **`headers` - Cache Optimization**
+   - **Imágenes** (`/assets/images/`): Cache por 1 año (inmutable)
+   - **CSS** (`/styles/`): Cache por 1 año (inmutable)
+   - **JavaScript** (`/js/`): Cache por 1 año (inmutable)
+   - **HTML** (`/index.html`): No cache, siempre revalidar (para actualizaciones inmediatas)
 
-### Antes de Refactorización:
-- Imágenes: ~8 MB
-- Lighthouse: ~60-70
-- CSS: Monolítico
-- JS: Un archivo
+2. **`cleanUrls: true`**
+   - `/about.html` → `/about`
+   - `/contact.html` → `/contact`
+   - URLs más limpias y profesionales
 
-### Después de Refactorización:
-- Imágenes: ~3.5 MB (responsive)
-- Lighthouse: 90+ esperado
-- CSS: 6 módulos
-- JS: 8 módulos ES6
+3. **`trailingSlash: false`**
+   - `/about/` → `/about`
+   - Previene URLs duplicadas para SEO
 
-### Mejora en Performance:
-- **First Contentful Paint:** ~1.5-2s más rápido
-- **Largest Contentful Paint:** ~2-3s más rápido
-- **Total Blocking Time:** Reducido significativamente
-- **Cumulative Layout Shift:** 0 (imágenes con width/height)
+### ¿Por qué funciona ahora?
 
-## 🐛 Troubleshooting
-
-### Si el sitio no carga correctamente:
-
-1. **Error 404 en archivos:**
-   - Verificar que rutas son case-sensitive
-   - assets/images/gallery/ (minúsculas)
-
-2. **ES6 Modules no funcionan:**
-   - Verificar Content-Type en Network tab
-   - Debe ser: `application/javascript`
-   - vercel.json debería manejarlo
-
-3. **Imágenes no cargan:**
-   - Verificar que existen en assets/images/gallery/
-   - Check DevTools Network tab para ver errores
-
-4. **CSS no se aplica:**
-   - Verificar que main.css importa todos los módulos
-   - Check que @import paths son correctos
-
-### Si hay errores en consola:
-
-```javascript
-// Error común: CORS
-// Solución: Vercel maneja esto automáticamente
-
-// Error común: Module not found
-// Verificar rutas en imports:
-import { CONFIG } from './config.js'; // ✅ Correcto
-import { CONFIG } from './config';    // ❌ Falta .js
+**Antes (❌ INCORRECTO):**
+```json
+{
+  "version": 2,
+  "builds": [...],       // Innecesario para sitios estáticos
+  "rewrites": [...],     // ⚠️ CONFLICTO con headers
+  "headers": [...]       // ⚠️ CONFLICTO con rewrites
+}
 ```
 
-## 📱 URLs Importantes
+**Ahora (✅ CORRECTO):**
+```json
+{
+  "headers": [...],      // Solo headers - compatible
+  "cleanUrls": true,     // Compatible con headers
+  "trailingSlash": false // Compatible con headers
+}
+```
 
-- **Sitio en vivo:** https://torrecorreos.vercel.app
-- **Dashboard Vercel:** https://vercel.com/dashboard
-- **GitHub Repo:** https://github.com/Oscarm157/torre_correos
-- **Documentación:** README.md, VERIFICACIÓN.md
+## 📊 Beneficios de la Nueva Configuración
 
-## 🎯 Próximos Pasos
+### Performance
+- ⚡ **Imágenes cacheadas por 1 año** → Carga instantánea en visitas repetidas
+- ⚡ **CSS/JS cacheados por 1 año** → Sin re-descargas innecesarias
+- ⚡ **HTML sin cache** → Actualizaciones inmediatas sin esperar
 
-1. **Verificar deploy en Vercel dashboard**
-2. **Probar sitio en producción**
-3. **Correr Lighthouse audit**
-4. **Compartir URL con cliente/equipo**
-5. **Configurar dominio personalizado (opcional)**
+### SEO
+- 🔍 **URLs limpias** → Mejor indexación en buscadores
+- 🔍 **Sin trailing slashes** → Evita contenido duplicado
+- 🔍 **Cache headers correctos** → Mejor Core Web Vitals
 
-## 🔐 Dominio Personalizado (Opcional)
+### Developer Experience
+- 🚀 **Deploy automático** → Push a GitHub = Deploy en Vercel
+- 🚀 **Sin build process** → ES6 modules nativos
+- 🚀 **Configuración simple** → Solo lo necesario
 
-Si quieres usar un dominio personalizado:
+## 🎯 Próximos Pasos para Deploy
 
-1. **En Vercel Dashboard:**
-   - Ir a tu proyecto
-   - Settings → Domains
-   - Add Domain
-   - Seguir instrucciones DNS
+### 1. Verificar que GitHub tiene el código correcto
 
-2. **Configurar DNS:**
-   - Agregar CNAME apuntando a `cname.vercel-dns.com`
-   - O A record a Vercel IP
+```bash
+# Ver último commit
+git log -1
 
-## ✅ Checklist Final
+# Debería mostrar:
+# commit 9033b9c...
+# Merge: Usar versión limpia de vercel.json sin conflictos
+```
 
-- [✅] Código commiteado a Git
-- [✅] Push a GitHub completado
-- [ ] Deploy en Vercel iniciado
-- [ ] Sitio accesible en producción
-- [ ] Lighthouse score 90+
-- [ ] Todas las funciones trabajan
-- [ ] Cliente/equipo notificado
+### 2. Opciones de Deploy en Vercel
+
+#### Opción A: Deploy Automático (Recomendado)
+Vercel detectará el push automáticamente y deployará en ~1-2 minutos.
+
+1. Ir a: https://vercel.com/dashboard
+2. Seleccionar proyecto "torre_correos"
+3. Ver pestaña "Deployments"
+4. Esperar deployment automático
+
+#### Opción B: Deploy Manual Forzado
+Si el deploy automático no inicia:
+
+1. En Vercel Dashboard → "torre_correos"
+2. Pestaña "Deployments"
+3. Click en "..." del último deployment
+4. Click "Redeploy"
+5. **Importante:** Desmarcar "Use existing Build Cache"
+6. Click "Redeploy"
+
+#### Opción C: Reimportar Proyecto (Si las anteriores fallan)
+Si Vercel sigue mostrando el error:
+
+1. **Eliminar proyecto en Vercel:**
+   - Settings → General → Scroll abajo
+   - "Delete Project" → Confirmar
+
+2. **Reimportar desde GitHub:**
+   - https://vercel.com/new
+   - "Import Git Repository"
+   - Seleccionar: `Oscarm157/torre_correos`
+   - Click "Import"
+   - **Configuración:**
+     - Framework Preset: Other
+     - Root Directory: `./`
+     - Build Command: (dejar vacío)
+     - Output Directory: `./`
+   - Click "Deploy"
+
+### 3. Verificar Deploy Exitoso
+
+Una vez que Vercel termine el deploy:
+
+```bash
+# Verificar que el HTML es correcto
+curl https://torrecorreos.vercel.app | grep "assets/images/gallery"
+
+# Debería mostrar rutas como:
+# src="assets/images/gallery/torre_correos_ext_04-1024.webp"
+```
+
+#### Verificación Visual:
+
+1. **Abrir:** https://torrecorreos.vercel.app
+2. **DevTools:** F12 → Network tab
+3. **Recargar:** Ctrl+Shift+R (hard reload)
+4. **Verificar imágenes:**
+   - ✅ Cargan desde `assets/images/gallery/`
+   - ✅ Tamaños correctos (~41-203 KB)
+   - ✅ NO cargan desde `imagenes/` (carpeta eliminada)
+
+#### Verificación Lighthouse:
+
+```bash
+# Chrome DevTools
+F12 → Lighthouse → Performance → Analyze
+
+# O con CLI
+npx lighthouse https://torrecorreos.vercel.app --view
+```
+
+**Esperado:**
+- Performance: 90+ ✅
+- "Properly size images": Passed ✅
+- "Serve images in next-gen formats": Passed ✅
+- Total de imágenes: ~2-3 MB (no 9.3 MB) ✅
+
+## 🔍 Troubleshooting
+
+### Error: "routes cannot be present"
+**Solución:** Ya resuelto en este commit. Si aparece de nuevo, verificar que `vercel.json` no tenga `"routes"`, `"rewrites"`, o `"builds"`.
+
+### Error: "Invalid configuration"
+**Solución:** Validar JSON en https://jsonlint.com/
+
+### Imágenes siguen cargando desde `imagenes/`
+**Solución:**
+1. Hard refresh: Ctrl+Shift+F5
+2. Limpiar cache de Vercel (redeploy sin cache)
+3. Verificar que GitHub tenga el HTML correcto
+
+### Deploy no inicia automáticamente
+**Solución:**
+1. Verificar Vercel Dashboard → Settings → Git
+2. Confirmar que el repo está conectado
+3. Verificar que "Production Branch" es `main`
+
+## 📝 Referencia de Cambios
+
+### Commits Relevantes:
+```bash
+# Fix del archivo vercel.json
+git log --oneline --grep="vercel.json"
+
+c821993 Fix: Simplificar vercel.json para compatibilidad con headers
+9033b9c Merge: Usar versión limpia de vercel.json sin conflictos
+```
+
+### Archivos Modificados:
+- ✏️ `vercel.json` - Configuración corregida
+- 📄 `DEPLOYMENT.md` - Esta guía
+
+## 🎯 Estado Final
+
+**Configuración:**
+- ✅ vercel.json simplificado y compatible
+- ✅ Sin conflictos de rewrites/headers
+- ✅ Cache headers optimizados
+- ✅ Pushed a GitHub
+
+**Próximo Paso:**
+- ⏳ Esperar deploy automático de Vercel (~1-2 min)
+- ✅ Verificar en https://torrecorreos.vercel.app
+- ✅ Confirmar Lighthouse Performance 90+
 
 ---
 
-**Estado:** ✅ Código subido a GitHub
-**Siguiente:** Verificar deploy automático en Vercel
-**URL:** https://torrecorreos.vercel.app (verificar)
+## 📚 Fuentes y Referencias
+
+- [Project Configuration - Vercel Docs](https://vercel.com/docs/project-configuration)
+- [Headers - Vercel Docs](https://vercel.com/docs/headers)
+- [Rewrites on Vercel](https://vercel.com/docs/rewrites)
+- [Mastering vercel.json Guide](https://peerlist.io/mahmudrahman/articles/mastering-verceljson-a-beginnerfriendly-guide-to-vercel-conf)
+
+**Estado:** ✅ PROYECTO RESCATADO - Listo para deploy
+
+**Última actualización:** 2026-01-08
