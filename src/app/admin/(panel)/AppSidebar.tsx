@@ -143,7 +143,7 @@ export function AppSidebar({
               <SidebarMenuButton
                 asChild
                 tooltip="Salir"
-                className="h-9 text-[var(--crm-ink-mute)] hover:!bg-[var(--crm-wine-tint)] hover:!text-[var(--crm-wine)]"
+                className="h-9 text-[var(--crm-ink-mute)] hover:!bg-[var(--crm-highlight-tint)] hover:!text-[var(--crm-highlight)]"
               >
                 <button type="submit" aria-label="Salir">
                   <LogOut strokeWidth={1.8} />

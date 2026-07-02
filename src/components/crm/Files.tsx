@@ -64,7 +64,7 @@ export function Files({ leadId, files, editable = true }: { leadId: string; file
             <UploadButton />
           </form>
           <p className="mt-1.5 text-[13px] text-[var(--crm-ink-mute)]">Cualquier tipo de archivo, hasta 10MB.</p>
-          {error && <p className="mt-1.5 text-[13px] text-[var(--crm-wine)]">{error}</p>}
+          {error && <p className="mt-1.5 text-[13px] text-[var(--crm-highlight)]">{error}</p>}
         </>
       )}
 
@@ -113,7 +113,7 @@ export function Files({ leadId, files, editable = true }: { leadId: string; file
                         startTransition(() => deleteLeadFile(f.id, leadId));
                     }}
                     title="Eliminar"
-                    className="rounded-md p-1.5 text-[var(--crm-ink-soft)] transition-colors hover:bg-[var(--crm-wine-tint)] hover:text-[var(--crm-wine)]"
+                    className="rounded-md p-1.5 text-[var(--crm-ink-soft)] transition-colors hover:bg-[var(--crm-highlight-tint)] hover:text-[var(--crm-highlight)]"
                   >
                     <Trash2 className="size-4" strokeWidth={1.7} />
                   </button>

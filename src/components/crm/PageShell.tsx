@@ -29,7 +29,7 @@ export function PageHeader({
           <p className="crm-eyebrow mb-2 flex items-center gap-2">
             <span className="crm-tricolor-dots" aria-hidden>
               <span style={{ background: "var(--crm-brand-navy)" }} />
-              <span style={{ background: "var(--crm-wine)" }} />
+              <span style={{ background: "var(--crm-highlight)" }} />
               <span style={{ background: "var(--crm-olive)" }} />
             </span>
             {eyebrow}

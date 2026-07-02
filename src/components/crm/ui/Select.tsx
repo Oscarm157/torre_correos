@@ -28,7 +28,7 @@ export function Select({
     <RS.Root value={value} onValueChange={onValueChange}>
       <RS.Trigger
         aria-label={ariaLabel}
-        className={`inline-flex ${h} w-full items-center justify-between gap-2 rounded-lg border border-[var(--crm-line-strong)] bg-[var(--crm-surface)] px-3 text-[var(--crm-ink)] outline-none transition-colors hover:border-[var(--crm-ink-mute)] focus-visible:border-[var(--crm-wine-soft)] focus-visible:shadow-[0_0_0_3px_var(--crm-wine-ring)] data-[placeholder]:text-[var(--crm-ink-mute)] ${className}`}
+        className={`inline-flex ${h} w-full items-center justify-between gap-2 rounded-lg border border-[var(--crm-line-strong)] bg-[var(--crm-surface)] px-3 text-[var(--crm-ink)] outline-none transition-colors hover:border-[var(--crm-ink-mute)] focus-visible:border-[var(--crm-highlight-soft)] focus-visible:shadow-[0_0_0_3px_var(--crm-highlight-ring)] data-[placeholder]:text-[var(--crm-ink-mute)] ${className}`}
       >
         <RS.Value placeholder={placeholder} />
         <RS.Icon>
@@ -46,7 +46,7 @@ export function Select({
               <RS.Item
                 key={o.value}
                 value={o.value}
-                className="relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-2.5 pr-8 text-[13px] text-[var(--crm-ink-soft)] outline-none data-[highlighted]:bg-[var(--crm-surface-2)] data-[highlighted]:text-[var(--crm-ink)] data-[state=checked]:text-[var(--crm-wine)]"
+                className="relative flex cursor-pointer select-none items-center rounded-md py-1.5 pl-2.5 pr-8 text-[13px] text-[var(--crm-ink-soft)] outline-none data-[highlighted]:bg-[var(--crm-surface-2)] data-[highlighted]:text-[var(--crm-ink)] data-[state=checked]:text-[var(--crm-highlight)]"
               >
                 <RS.ItemText>{o.label}</RS.ItemText>
                 <RS.ItemIndicator className="absolute right-2.5">

@@ -46,7 +46,7 @@ export function PanelTopbar({ user }: { user: { name: string; role: string } }) 
         <div className="ml-auto flex items-center gap-2.5">
           <span className="crm-tricolor-dots" aria-hidden>
             <span style={{ background: "var(--crm-brand-navy)" }} />
-            <span style={{ background: "var(--crm-wine)" }} />
+            <span style={{ background: "var(--crm-highlight)" }} />
             <span style={{ background: "var(--crm-olive)" }} />
           </span>
           <span className="mx-1 hidden h-5 w-px bg-[var(--crm-line-strong)] sm:block" />

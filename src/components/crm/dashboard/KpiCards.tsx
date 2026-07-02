@@ -7,15 +7,15 @@ import { MoneyCount } from "./MoneyCount";
 
 // Jerarquía en dos pisos: arriba los conteos (lead-count como hero, en serif
 // grande), abajo el dinero, que es lo que pesa, en tarjetas más anchas con el
-// color de marca según el tipo (navy = pipeline abierto, vino = ganado).
+// color de marca según el tipo (navy = pipeline abierto, verde = ganado).
 const heroNum = "font-serif text-[46px] leading-[0.9] tracking-[-0.02em] tabular-nums";
 const bigNum = "font-serif text-[34px] leading-none tracking-[-0.015em] tabular-nums";
 const num = "font-semibold text-[30px] leading-none tracking-[-0.02em] tabular-nums";
 
-type Tone = "navy" | "wine" | "olive" | "neutral";
+type Tone = "navy" | "highlight" | "olive" | "neutral";
 const ACCENT: Record<Tone, string> = {
   navy: "var(--crm-brand-navy)",
-  wine: "var(--crm-wine)",
+  highlight: "var(--crm-highlight)",
   olive: "var(--crm-olive)",
   neutral: "var(--crm-line-strong)",
 };
@@ -156,7 +156,7 @@ export function KpiCards({ totals }: { totals: DashboardMetrics["totals"] }) {
       totals.wonValue === 0
         ? "Sin cierres ganados"
         : `${totals.won} ${totals.won === 1 ? "trato ganado" : "tratos ganados"}`,
-    tone: "wine",
+    tone: "highlight",
   };
 
   return (

@@ -15,7 +15,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
           {c.href ? (
             <Link
               href={c.href}
-              className="rounded px-1 py-0.5 text-[var(--crm-ink-mute)] transition-colors hover:text-[var(--crm-wine)]"
+              className="rounded px-1 py-0.5 text-[var(--crm-ink-mute)] transition-colors hover:text-[var(--crm-highlight)]"
             >
               {c.label}
             </Link>

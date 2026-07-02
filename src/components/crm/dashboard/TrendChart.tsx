@@ -93,8 +93,8 @@ export function TrendChart({ trend }: { trend: DashboardMetrics["trend"] }) {
           >
             <defs>
               <linearGradient id="crm-trend-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--crm-wine)" stopOpacity="0.18" />
-                <stop offset="100%" stopColor="var(--crm-wine)" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--crm-highlight)" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="var(--crm-highlight)" stopOpacity="0" />
               </linearGradient>
             </defs>
 
@@ -116,7 +116,7 @@ export function TrendChart({ trend }: { trend: DashboardMetrics["trend"] }) {
             <motion.path
               d={geo.line}
               fill="none"
-              stroke="var(--crm-wine)"
+              stroke="var(--crm-highlight)"
               strokeWidth="2"
               strokeLinejoin="round"
               strokeLinecap="round"
@@ -127,7 +127,7 @@ export function TrendChart({ trend }: { trend: DashboardMetrics["trend"] }) {
 
             {/* crosshair on hover */}
             {active && (
-              <line x1={active.x} y1={PAD.top} x2={active.x} y2={geo.baseY} stroke="var(--crm-wine)" strokeWidth="1" strokeOpacity="0.35" />
+              <line x1={active.x} y1={PAD.top} x2={active.x} y2={geo.baseY} stroke="var(--crm-highlight)" strokeWidth="1" strokeOpacity="0.35" />
             )}
 
             {/* marcador del punto actual (último) + punto en hover; el resto limpio */}
@@ -141,8 +141,8 @@ export function TrendChart({ trend }: { trend: DashboardMetrics["trend"] }) {
                   cx={p.x}
                   cy={p.y}
                   r={isHover ? 5 : 3.5}
-                  fill={isHover ? "var(--crm-wine)" : "var(--crm-surface)"}
-                  stroke="var(--crm-wine)"
+                  fill={isHover ? "var(--crm-highlight)" : "var(--crm-surface)"}
+                  stroke="var(--crm-highlight)"
                   strokeWidth="1.8"
                 />
               );

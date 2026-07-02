@@ -48,7 +48,7 @@ export function StatusControl({
     >
       <RS.Trigger
         aria-label="Cambiar estado"
-        className={`relative inline-flex w-full items-center gap-2 rounded-lg border px-3 py-2 text-[13px] font-medium outline-none transition-colors focus-visible:shadow-[0_0_0_3px_var(--crm-wine-ring)] sm:w-[170px] ${wrap}`}
+        className={`relative inline-flex w-full items-center gap-2 rounded-lg border px-3 py-2 text-[13px] font-medium outline-none transition-colors focus-visible:shadow-[0_0_0_3px_var(--crm-highlight-ring)] sm:w-[170px] ${wrap}`}
       >
         {pending ? (
           <Loader2 className={`size-3.5 shrink-0 animate-spin ${meta.dot.replace("bg-", "text-")}`} strokeWidth={2} />
@@ -76,7 +76,7 @@ export function StatusControl({
                 <span className={`size-1.5 shrink-0 rounded-full ${STATUS_META[s].dot}`} />
                 <RS.ItemText>{STATUS_META[s].label}</RS.ItemText>
                 <RS.ItemIndicator className="absolute right-2.5">
-                  <Check className="size-3.5 text-[var(--crm-wine)]" />
+                  <Check className="size-3.5 text-[var(--crm-highlight)]" />
                 </RS.ItemIndicator>
               </RS.Item>
             ))}

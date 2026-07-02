@@ -50,7 +50,7 @@ export function OwnerControl({
     >
       <RS.Trigger
         aria-label="Asignar responsable"
-        className="relative inline-flex w-full items-center gap-2 rounded-lg border border-[var(--crm-line-strong)] bg-[var(--crm-surface)] px-3 py-2 text-[13px] text-[var(--crm-ink)] outline-none transition-colors hover:border-[var(--crm-ink-mute)] focus-visible:border-[var(--crm-wine-soft)] focus-visible:shadow-[0_0_0_3px_var(--crm-wine-ring)] sm:w-[170px]"
+        className="relative inline-flex w-full items-center gap-2 rounded-lg border border-[var(--crm-line-strong)] bg-[var(--crm-surface)] px-3 py-2 text-[13px] text-[var(--crm-ink)] outline-none transition-colors hover:border-[var(--crm-ink-mute)] focus-visible:border-[var(--crm-highlight-soft)] focus-visible:shadow-[0_0_0_3px_var(--crm-highlight-ring)] sm:w-[170px]"
       >
         {pending ? (
           <Loader2 className="size-3.5 shrink-0 animate-spin text-[var(--crm-ink-mute)]" strokeWidth={2} />
@@ -75,7 +75,7 @@ export function OwnerControl({
             >
               <RS.ItemText>Sin asignar</RS.ItemText>
               <RS.ItemIndicator className="absolute right-2.5">
-                <Check className="size-3.5 text-[var(--crm-wine)]" />
+                <Check className="size-3.5 text-[var(--crm-highlight)]" />
               </RS.ItemIndicator>
             </RS.Item>
             {users.map((u) => (
@@ -86,7 +86,7 @@ export function OwnerControl({
               >
                 <RS.ItemText>{u.name}</RS.ItemText>
                 <RS.ItemIndicator className="absolute right-2.5">
-                  <Check className="size-3.5 text-[var(--crm-wine)]" />
+                  <Check className="size-3.5 text-[var(--crm-highlight)]" />
                 </RS.ItemIndicator>
               </RS.Item>
             ))}

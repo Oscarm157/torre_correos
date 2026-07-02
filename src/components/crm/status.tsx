@@ -6,7 +6,7 @@ export { STATUS_ORDER };
 
 // Paleta curada para tema oscuro: tinte suave + texto claro legible (300/400), no -700.
 const STATUS_STYLE: Record<LeadStatus, { badge: string; dot: string }> = {
-  new: { badge: "bg-[var(--crm-wine-tint)] text-[var(--crm-wine)] border-[var(--crm-wine-ring)]", dot: "bg-[var(--crm-wine)]" },
+  new: { badge: "bg-[var(--crm-highlight-tint)] text-[var(--crm-highlight)] border-[var(--crm-highlight-ring)]", dot: "bg-[var(--crm-highlight)]" },
   contacted: { badge: "bg-sky-400/12 text-sky-300 border-sky-400/25", dot: "bg-sky-400" },
   following_up: { badge: "bg-amber-400/12 text-amber-300 border-amber-400/25", dot: "bg-amber-400" },
   proposal: { badge: "bg-violet-400/12 text-violet-300 border-violet-400/25", dot: "bg-violet-400" },

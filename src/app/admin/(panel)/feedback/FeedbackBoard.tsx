@@ -220,7 +220,7 @@ export function FeedbackBoard({
                           <button
                             type="button"
                             onClick={() => startTransition(() => void deleteNote(n.id))}
-                            className="rounded-md border border-[var(--crm-line)] p-1.5 text-[var(--crm-ink-soft)] transition hover:text-[var(--crm-wine)]"
+                            className="rounded-md border border-[var(--crm-line)] p-1.5 text-[var(--crm-ink-soft)] transition hover:text-[var(--crm-highlight)]"
                             aria-label="Eliminar"
                           >
                             <Trash2 className="size-3.5" />

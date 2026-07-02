@@ -1,5 +1,5 @@
 import { notFound, redirect } from "next/navigation";
-import { Mail, Phone, Globe, CalendarClock, Lock, Sparkles } from "lucide-react";
+import { Mail, Phone, Globe, CalendarClock, Lock, NotebookPen } from "lucide-react";
 import { Breadcrumb } from "@/components/crm/Breadcrumb";
 import { getLead, getComments, getFiles, getEvents, getActiveUsers, getUserById } from "@/lib/crm-data";
 import { getCurrentUser } from "@/lib/session";
@@ -140,9 +140,9 @@ export default async function LeadDetail({ params }: { params: Promise<{ id: str
         <div className="crm-card-raised crm-fade overflow-hidden" style={{ animationDelay: "60ms" }}>
           {lead.summary && (
             <div className="flex gap-3 border-b border-[var(--crm-line)] bg-[var(--crm-accent-tint)] px-5 py-4">
-              <Sparkles className="mt-0.5 size-4 shrink-0 text-[var(--crm-accent-strong)]" strokeWidth={2} />
+              <NotebookPen className="mt-0.5 size-4 shrink-0 text-[var(--crm-accent-strong)]" strokeWidth={2} />
               <div className="min-w-0">
-                <p className="crm-eyebrow mb-1.5 text-[var(--crm-accent-strong)]">Resumen con IA</p>
+                <p className="crm-eyebrow mb-1.5 text-[var(--crm-accent-strong)]">Resumen</p>
                 <p className="whitespace-pre-wrap text-[13.5px] leading-relaxed text-[var(--crm-ink-soft)]">
                   {lead.summary}
                 </p>
