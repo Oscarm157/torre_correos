@@ -534,6 +534,13 @@
   border: 2px solid transparent;
   background-clip: padding-box;
 }
+/* Botón flotante de Cal.com: el web component no expone control de tamaño
+   (solo texto/color/posición vía su API), así que se achica desde afuera.
+   `zoom` (no `transform`) porque no rompe el `position: fixed` interno. */
+cal-floating-button {
+  zoom: 0.82;
+}
+
 .crm-scroll::-webkit-scrollbar-thumb:hover {
   background: var(--crm-ink-faint);
 }

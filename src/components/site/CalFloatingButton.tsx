@@ -24,6 +24,8 @@ export function CalFloatingButton() {
       cal("floatingButton", {
         calLink: CAL_LINK,
         buttonText: "Agendar cita",
+        buttonColor: "#1a2744",
+        buttonTextColor: "#d4b87a",
         config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
       });
       cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
