@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { FeedbackWidget } from "@/components/site/FeedbackWidget";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-body">
         {children}
         <Toaster />
+        <FeedbackWidget />
       </body>
     </html>
   );
