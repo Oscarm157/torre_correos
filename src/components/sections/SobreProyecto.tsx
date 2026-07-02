@@ -66,13 +66,13 @@ export default function SobreProyecto() {
         {/* Placa vertical: alzado técnico de fachada (dibujo real del proyecto). */}
         <div className="lg:col-span-5">
           <Reveal delay={0.12} y={36} className="lg:sticky lg:top-28">
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden border border-[#1a2744]/10 bg-white lg:max-w-none">
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden border border-[#1a2744]/10 bg-white lg:max-w-none">
               <Image
                 src="/images/gallery/Torre+Correos+-+Facade.webp"
                 alt="Alzado arquitectónico de Torre Correos: volumen escalonado con láminas perforadas de acero"
                 fill
                 sizes="(max-width: 1024px) 24rem, 40vw"
-                className="object-contain p-6"
+                className="object-contain p-2"
               />
             </div>
             <p className="mt-4 text-center font-body text-[0.75rem] tracking-[0.16em] text-[#9a7a48] uppercase lg:text-left">
