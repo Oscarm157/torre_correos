@@ -11,7 +11,7 @@ import { Reveal } from "./reveal";
  * El grid de abajo son huecos honestos (sin foto de stock) listos para que
  * Oscar suba las fotos reales de avance.
  */
-const HUECOS = 6;
+const HUECOS = 3;
 
 export default function AvanceObra() {
   return (
