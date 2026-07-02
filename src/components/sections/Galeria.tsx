@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Reveal } from "./reveal";
+import { AnimatePresence, motion } from "motion/react";
+import { X } from "lucide-react";
+import { Reveal, EASE } from "./reveal";
 
 /**
  * Galería — familia de layout: mosaico editorial en columnas (CSS `columns`,
@@ -58,6 +61,17 @@ const FOTOS = [
 ];
 
 export default function Galeria() {
+  const [abierta, setAbierta] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (abierta === null) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setAbierta(null);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [abierta]);
+
   return (
     <section
       id="galeria"
@@ -75,33 +89,81 @@ export default function Galeria() {
           </div>
         </Reveal>
 
-        <div className="columns-1 gap-3 sm:columns-2 sm:gap-4">
+        <div className="columns-1 gap-3 sm:columns-2 sm:gap-4 lg:columns-3">
           {FOTOS.map((foto, i) => (
             <Reveal
               key={foto.src}
-              delay={(i % 2) * 0.08}
+              delay={(i % 3) * 0.07}
               y={36}
               className="mb-3 block break-inside-avoid sm:mb-4"
             >
-              <figure
-                className={`group relative w-full overflow-hidden bg-[#1a2744] ${foto.aspect}`}
+              <button
+                type="button"
+                onClick={() => setAbierta(i)}
+                aria-label={`Ampliar: ${foto.caption}`}
+                className="group relative block w-full cursor-zoom-in overflow-hidden bg-[#1a2744] focus:outline-none"
               >
-                <Image
-                  src={foto.src}
-                  alt={foto.alt}
-                  fill
-                  sizes={foto.sizes}
-                  className="object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.05]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f1729]/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <figcaption className="pointer-events-none absolute bottom-0 left-0 translate-y-2 p-4 font-body text-[0.8125rem] tracking-[0.08em] text-[#f5f3ef] uppercase opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
-                  {foto.caption}
-                </figcaption>
-              </figure>
+                <figure className={`relative w-full ${foto.aspect}`}>
+                  <Image
+                    src={foto.src}
+                    alt={foto.alt}
+                    fill
+                    sizes={foto.sizes}
+                    className="object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.05]"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0f1729]/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <figcaption className="pointer-events-none absolute bottom-0 left-0 translate-y-2 p-4 font-body text-[0.8125rem] tracking-[0.08em] text-[#f5f3ef] uppercase opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:p-5">
+                    {foto.caption}
+                  </figcaption>
+                </figure>
+              </button>
             </Reveal>
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {abierta !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: EASE }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0f1729]/95 p-4 sm:p-8"
+            onClick={() => setAbierta(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setAbierta(null)}
+              aria-label="Cerrar"
+              className="absolute top-5 right-5 flex size-10 items-center justify-center border border-[#f5f3ef]/20 text-[#f5f3ef] transition-colors duration-200 hover:border-[#d4b87a] hover:text-[#d4b87a]"
+            >
+              <X className="size-5" />
+            </button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative aspect-[3/2] w-full">
+                <Image
+                  src={FOTOS[abierta].src}
+                  alt={FOTOS[abierta].alt}
+                  fill
+                  sizes="90vw"
+                  className="object-contain"
+                />
+              </div>
+              <p className="mt-4 text-center font-body text-[0.8125rem] tracking-[0.1em] text-[#f5f3ef]/70 uppercase">
+                {FOTOS[abierta].caption}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
