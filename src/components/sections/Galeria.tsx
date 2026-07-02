@@ -64,13 +64,13 @@ export default function Galeria() {
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <Reveal>
-          <div className="mb-12 flex items-end justify-between gap-6">
-            <h2 className="font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-none font-medium text-[#1a2744]">
+          <div className="mb-12 max-w-2xl">
+            <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#9a7a48] uppercase">
               Galería
-            </h2>
-            <span className="hidden font-body text-[0.75rem] tracking-[0.2em] text-[#9a7a48] uppercase sm:block">
-              Renders del proyecto
             </span>
+            <h2 className="mt-3 font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-medium text-[#1a2744]">
+              Descubre cada espacio
+            </h2>
           </div>
         </Reveal>
 

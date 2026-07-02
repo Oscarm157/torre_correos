@@ -23,10 +23,10 @@ export default function Ubicacion() {
         <Reveal>
           <div className="mb-10 max-w-2xl">
             <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#9a7a48] uppercase">
-              Conectividad estratégica
+              Ubicación
             </span>
             <h2 className="mt-3 font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-medium text-[#1a2744]">
-              Ubicación
+              En el corazón de Tijuana
             </h2>
           </div>
         </Reveal>

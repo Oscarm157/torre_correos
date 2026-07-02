@@ -6,10 +6,11 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Reveal, EASE } from "./reveal";
 
 /**
- * Amenidades — familia de layout: selector interactivo con cross-fade.
+ * Espacios — familia de layout: selector interactivo con cross-fade.
  * Reemplaza (no añade) las amenidades puntuales de rooftop del sitio viejo por
  * categorías de espacio: Residencias, Penthouses, Áreas de confort, Corporativos,
- * Comercio. Imagen grande a la izquierda + lista de categorías a la derecha;
+ * Comercio. La palabra "Amenidades" no aparece: es otra cosa. Imagen grande a la
+ * izquierda + lista de categorías a la derecha;
  * al cambiar de categoría la imagen hace cross-fade (rol Aker). Banda dark.
  *
  * ASIGNACIÓN DE FOTOS: no hay render específico por categoría todavía. Se asignan
@@ -63,14 +64,14 @@ const CATEGORIAS = [
   },
 ];
 
-export default function Amenidades() {
+export default function Espacios() {
   const reduceMotion = useReducedMotion();
   const [activo, setActivo] = useState(0);
   const cat = CATEGORIAS[activo];
 
   return (
     <section
-      id="amenidades"
+      id="espacios"
       className="scroll-mt-16 bg-[#0f1729] py-20 sm:scroll-mt-20 sm:py-28 lg:py-32"
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
@@ -80,7 +81,7 @@ export default function Amenidades() {
               Categorías del desarrollo
             </span>
             <h2 className="mt-3 font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-medium text-[#f5f3ef]">
-              Amenidades
+              Espacios
             </h2>
           </div>
         </Reveal>

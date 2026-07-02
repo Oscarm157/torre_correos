@@ -8,7 +8,7 @@ import Image from "next/image";
 const NAV_LINKS = [
   { label: "Proyecto", href: "#proyecto" },
   { label: "Galería", href: "#galeria" },
-  { label: "Amenidades", href: "#amenidades" },
+  { label: "Espacios", href: "#espacios" },
   { label: "Ubicación", href: "#ubicacion" },
   { label: "Comunidad", href: "#comunidad" },
   { label: "Avance de Obra", href: "#avance-de-obra" },

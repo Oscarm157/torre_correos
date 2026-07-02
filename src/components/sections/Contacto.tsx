@@ -34,7 +34,10 @@ export default function Contacto() {
         {/* Mensaje */}
         <div className="lg:pt-4">
           <Reveal>
-            <h2 className="max-w-md font-display text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[1.05] font-medium text-[#1a2744]">
+            <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#9a7a48] uppercase">
+              Contacto
+            </span>
+            <h2 className="mt-3 max-w-md font-display text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[1.05] font-medium text-[#1a2744]">
               Comienza a vivir diferente.
             </h2>
             <p className="mt-6 max-w-md font-body text-[1.0625rem] leading-relaxed text-[#333333]">
