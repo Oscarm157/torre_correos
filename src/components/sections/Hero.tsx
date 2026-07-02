@@ -19,9 +19,8 @@ const EASE = [0.165, 0.84, 0.44, 1] as const;
 const NAV_LINKS = [
   { label: "Proyecto", href: "#proyecto" },
   { label: "Galería", href: "#galeria" },
-  { label: "Espacios", href: "#espacios" },
+  { label: "Tipologías", href: "#espacios" },
   { label: "Ubicación", href: "#ubicacion" },
-  { label: "Comunidad", href: "#comunidad" },
   { label: "Avance de Obra", href: "#avance-de-obra" },
 ];
 

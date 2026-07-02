@@ -81,7 +81,7 @@ export default function Espacios() {
               Categorías del desarrollo
             </span>
             <h2 className="mt-3 font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-medium text-[#f5f3ef]">
-              Espacios
+              Tipologías
             </h2>
           </div>
         </Reveal>

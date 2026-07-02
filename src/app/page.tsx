@@ -4,7 +4,6 @@ import PropuestaValor from "@/components/sections/PropuestaValor";
 import Galeria from "@/components/sections/Galeria";
 import Espacios from "@/components/sections/Espacios";
 import Ubicacion from "@/components/sections/Ubicacion";
-import Comunidad from "@/components/sections/Comunidad";
 import AvanceObra from "@/components/sections/AvanceObra";
 import Agenda from "@/components/sections/Agenda";
 import Contacto from "@/components/sections/Contacto";
@@ -20,7 +19,6 @@ export default function HomePage() {
         <Galeria />
         <Espacios />
         <Ubicacion />
-        <Comunidad />
         <AvanceObra />
         <Agenda />
         <Contacto />
