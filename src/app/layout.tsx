@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = Montserrat({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Starter",
-  description: "Plomería base: auth, datos y estados.",
+  title: "Torre Correos Community, Tijuana, B.C.",
+  description:
+    "Una comunidad vibrante donde vivir, trabajar y convivir convergen en perfecta armonía.",
 };
 
 export default function RootLayout({
@@ -24,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang="es" className={`${display.variable} ${body.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-body">
         {children}
         <Toaster />
       </body>
