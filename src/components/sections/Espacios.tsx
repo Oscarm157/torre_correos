@@ -86,7 +86,7 @@ export default function Espacios() {
       id="espacios"
       className="scroll-mt-16 bg-[#0f1729] py-20 sm:scroll-mt-20 sm:py-28 lg:py-32"
     >
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <Reveal>
           <div className="mb-12 max-w-2xl">
             <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#d4b87a] uppercase">

@@ -19,7 +19,7 @@ export default function Ubicacion() {
       id="ubicacion"
       className="scroll-mt-16 bg-[#f5f3ef] py-20 sm:scroll-mt-20 sm:py-28 lg:py-32"
     >
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <Reveal>
           <div className="mb-10 max-w-2xl">
             <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#9a7a48] uppercase">

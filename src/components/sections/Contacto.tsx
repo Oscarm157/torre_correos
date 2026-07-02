@@ -40,7 +40,7 @@ export default function Contacto() {
       id="contacto"
       className="scroll-mt-16 bg-[#f5f3ef] py-20 sm:scroll-mt-20 sm:py-28 lg:py-32"
     >
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         {/* Mensaje */}
         <div className="lg:pt-4">
           <Reveal>

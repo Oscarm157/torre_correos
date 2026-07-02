@@ -19,7 +19,7 @@ export default function AvanceObra() {
       id="avance-de-obra"
       className="scroll-mt-16 bg-[#f5f3ef] py-24 sm:scroll-mt-20 sm:py-32"
     >
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <span
             aria-hidden
@@ -44,7 +44,7 @@ export default function AvanceObra() {
         </div>
       </div>
 
-      <div className="mx-auto mt-14 max-w-[1440px] px-5 sm:mt-16 sm:px-8">
+      <div className="mx-auto mt-14 max-w-[1280px] px-5 sm:mt-16 sm:px-8">
         <Reveal delay={0.14}>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             {Array.from({ length: HUECOS }, (_, i) => (

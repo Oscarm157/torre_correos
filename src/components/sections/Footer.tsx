@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0f1729] pt-16 pb-8">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <div className="grid grid-cols-1 gap-10 border-b border-[#f5f3ef]/10 pb-12 md:grid-cols-[1.4fr_1fr_1fr]">
           {/* Marca + tagline */}
           <div>

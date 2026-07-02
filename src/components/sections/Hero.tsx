@@ -119,7 +119,7 @@ export default function Hero() {
             scrolled ? "opacity-0" : "opacity-100"
           }`}
         />
-        <nav className="relative mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-5 sm:h-20 sm:px-8">
+        <nav className="relative mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-5 sm:h-20 sm:px-8">
           <a
             href="#"
             aria-label="Torre Correos, inicio"
@@ -263,7 +263,7 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-20 pt-32 sm:px-8 sm:pb-28 lg:pb-32"
+          className="relative z-10 mx-auto w-full max-w-[1280px] px-5 pb-20 pt-32 sm:px-8 sm:pb-28 lg:pb-32"
         >
           <div className="max-w-3xl">
             <motion.div

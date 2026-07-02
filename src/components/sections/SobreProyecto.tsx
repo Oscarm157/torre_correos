@@ -16,7 +16,7 @@ export default function SobreProyecto() {
       id="proyecto"
       className="scroll-mt-16 bg-[#f5f3ef] py-20 sm:scroll-mt-20 sm:py-28 lg:py-36"
     >
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-x-12 gap-y-14 px-5 sm:px-8 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-12 gap-y-14 px-5 sm:px-8 lg:grid-cols-12">
         {/* Columna editorial */}
         <div className="lg:col-span-7 lg:pr-8">
           <Reveal>

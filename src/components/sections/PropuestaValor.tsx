@@ -34,7 +34,7 @@ const VALORES = [
 export default function PropuestaValor() {
   return (
     <section className="bg-[#1a2744] py-20 sm:py-28 lg:py-32">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <div className="border-t border-[#b8965c]/25">
           {VALORES.map((v, i) => (
             <Reveal key={v.n} delay={i * 0.06}>
