@@ -1,5 +1,6 @@
 "use client";
 
+import { Camera } from "lucide-react";
 import { Reveal } from "./reveal";
 
 /**
@@ -7,7 +8,11 @@ import { Reveal } from "./reveal";
  * de Oscar). Familia DISTINTA a Comunidad: bloque asimétrico alineado a la
  * izquierda sobre banda clara (crema), con numeral serif grande como ancla.
  * TODO: sustituir por la bitácora/seguimiento de obra real cuando llegue.
+ * El grid de abajo son huecos honestos (sin foto de stock) listos para que
+ * Oscar suba las fotos reales de avance.
  */
+const HUECOS = 6;
+
 export default function AvanceObra() {
   return (
     <section
@@ -37,6 +42,24 @@ export default function AvanceObra() {
             </p>
           </Reveal>
         </div>
+      </div>
+
+      <div className="mx-auto mt-14 max-w-[1440px] px-5 sm:mt-16 sm:px-8">
+        <Reveal delay={0.14}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {Array.from({ length: HUECOS }, (_, i) => (
+              <div
+                key={i}
+                className="flex aspect-[4/3] flex-col items-center justify-center gap-2 border border-dashed border-[#1a2744]/20 bg-[#1a2744]/5"
+              >
+                <Camera className="size-5 text-[#1a2744]/30" strokeWidth={1.5} />
+                <span className="font-body text-[0.6875rem] tracking-[0.1em] text-[#1a2744]/40 uppercase">
+                  Foto pendiente
+                </span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
