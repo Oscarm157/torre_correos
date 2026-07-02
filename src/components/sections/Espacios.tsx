@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { Camera } from "lucide-react";
 import { Reveal, EASE } from "./reveal";
 
 /**
@@ -17,14 +18,24 @@ import { Reveal, EASE } from "./reveal";
  * renders reales del proyecto de forma razonada. Marcadas como "genérica" las que
  * usan una foto de contexto y esperan render propio de Oscar:
  *  - Residencias: int_06 (interior residencial real) — buen calce.
- *  - Penthouses: int_02 (vestíbulo escultórico) — GENÉRICA, no hay render de penthouse.
+ *  - Penthouses: placeholder honesto (feedback de Oscar: mejor eso que la foto
+ *    genérica de vestíbulo que no correspondía). TODO: render real de penthouse.
  *  - Áreas de confort: int_04 (concierge lounge real) — buen calce.
  *  - Corporativos: int_01 (vestíbulo doble altura) — GENÉRICA, no hay render de oficina.
  *  - Comercio: ext_01 (arcada comercial a pie de calle) — buen calce.
  * Nota: se descartó amenidades-lifestyle.jpg (cancha de bochas) por ser el stock
  * flaggeado en DESIGN.md; int_04 es mejor calce y es render propio.
  */
-const CATEGORIAS = [
+type Categoria = {
+  id: string;
+  nombre: string;
+  desc: string;
+  src: string;
+  alt: string;
+  placeholder?: boolean;
+};
+
+const CATEGORIAS: Categoria[] = [
   {
     id: "residencias",
     nombre: "Residencias",
@@ -35,10 +46,11 @@ const CATEGORIAS = [
   {
     id: "penthouses",
     nombre: "Penthouses",
-    // Foto genérica: sin render específico de penthouse todavía.
     desc: "Las residencias en los niveles superiores de la torre.",
-    src: "/images/gallery/torre_correos_int_02.webp",
-    alt: "Vestíbulo con muro de casilleros postales y escalera helicoidal de acero inoxidable",
+    // Sin render de penthouse todavía: placeholder honesto en vez de foto genérica.
+    placeholder: true,
+    src: "",
+    alt: "",
   },
   {
     id: "confort",
@@ -101,14 +113,25 @@ export default function Espacios() {
                 transition={{ duration: reduceMotion ? 0 : 0.5, ease: EASE }}
                 className="absolute inset-0"
               >
-                <Image
-                  src={cat.src}
-                  alt={cat.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1729]/60 via-transparent to-transparent" />
+                {cat.placeholder ? (
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-3 border border-dashed border-[#f5f3ef]/15 bg-[#1a2744]/60">
+                    <Camera className="size-6 text-[#f5f3ef]/30" strokeWidth={1.5} />
+                    <span className="font-body text-[0.75rem] tracking-[0.14em] text-[#f5f3ef]/40 uppercase">
+                      Foto pendiente
+                    </span>
+                  </div>
+                ) : (
+                  <>
+                    <Image
+                      src={cat.src}
+                      alt={cat.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 58vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1729]/60 via-transparent to-transparent" />
+                  </>
+                )}
               </motion.div>
             </AnimatePresence>
           </div>
