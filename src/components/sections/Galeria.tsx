@@ -4,54 +4,55 @@ import Image from "next/image";
 import { Reveal } from "./reveal";
 
 /**
- * Galería — familia de layout: mosaico editorial asimétrico.
- * Tiles de distinto span y aspecto (no un grid uniforme): la torre en placa
- * vertical grande ancla el conjunto y el resto compone alrededor con ritmo
- * desigual. Solo renders reales del proyecto (sin stock: la foto de cancha de
- * bochas queda flaggeada en DESIGN.md, no se usa aquí).
- * Banda clara (crema) del ritmo dark/light.
+ * Galería — familia de layout: mosaico editorial en columnas (CSS `columns`,
+ * NO css-grid con aspect-ratios mixtos: eso deja huecos cuando un ítem de la
+ * fila queda más corto que su pareja — bug real que hubo aquí). El flujo por
+ * columnas empaca cada foto justo debajo de la anterior sin importar su
+ * altura, y el ritmo asimétrico lo dan los aspect-ratios variados, no el
+ * grid. Solo renders reales del proyecto (sin stock: la foto de cancha de
+ * bochas queda flaggeada en DESIGN.md, no se usa aquí). Banda clara (crema).
  */
 const FOTOS = [
   {
     src: "/images/gallery/torre_correos_ext_04.webp",
     alt: "Torre Correos vista desde la calle, volumen escalonado con láminas perforadas de acero",
     caption: "Fachada principal",
-    cell: "lg:col-span-5 aspect-[3/4]",
-    sizes: "(max-width: 1024px) 100vw, 40vw",
+    aspect: "aspect-[3/4]",
+    sizes: "(max-width: 1024px) 100vw, 48vw",
   },
   {
     src: "/images/gallery/torre_correos_int_01.webp",
     alt: "Vestíbulo de doble altura con escalera escultórica y techo artesonado de concreto",
     caption: "Vestíbulo principal",
-    cell: "lg:col-span-7 aspect-[16/11]",
-    sizes: "(max-width: 1024px) 100vw, 56vw",
+    aspect: "aspect-[16/11]",
+    sizes: "(max-width: 1024px) 100vw, 48vw",
   },
   {
     src: "/images/gallery/torre_correos_int_06.webp",
     alt: "Interior residencial con cocina, sala y comedor abiertos y vista a la ciudad",
     caption: "Interior residencial",
-    cell: "lg:col-span-7 aspect-[16/10]",
-    sizes: "(max-width: 1024px) 100vw, 56vw",
+    aspect: "aspect-[4/5]",
+    sizes: "(max-width: 1024px) 100vw, 48vw",
   },
   {
     src: "/images/gallery/torre_correos_int_04.webp",
     alt: "Área de concierge con acabados cálidos de madera y mobiliario de descanso",
     caption: "Concierge",
-    cell: "lg:col-span-5 aspect-[4/5]",
-    sizes: "(max-width: 1024px) 100vw, 40vw",
+    aspect: "aspect-[3/4]",
+    sizes: "(max-width: 1024px) 100vw, 48vw",
   },
   {
     src: "/images/gallery/torre_correos_ext_01.webp",
     alt: "Planta baja comercial con arcada de concreto y locales a pie de calle",
     caption: "Comercio a pie de calle",
-    cell: "lg:col-span-6 aspect-[3/2]",
+    aspect: "aspect-[3/2]",
     sizes: "(max-width: 1024px) 100vw, 48vw",
   },
   {
     src: "/images/gallery/torre_correos_int_02.webp",
     alt: "Vestíbulo con muro de casilleros postales y escalera helicoidal de acero inoxidable",
     caption: "Guiño postal en el vestíbulo",
-    cell: "lg:col-span-6 aspect-[3/2]",
+    aspect: "aspect-[16/11]",
     sizes: "(max-width: 1024px) 100vw, 48vw",
   },
 ];
@@ -74,15 +75,17 @@ export default function Galeria() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-12">
+        <div className="columns-1 gap-3 sm:columns-2 sm:gap-4">
           {FOTOS.map((foto, i) => (
             <Reveal
               key={foto.src}
               delay={(i % 2) * 0.08}
               y={36}
-              className={foto.cell}
+              className="mb-3 block break-inside-avoid sm:mb-4"
             >
-              <figure className="group relative h-full w-full overflow-hidden bg-[#1a2744]">
+              <figure
+                className={`group relative w-full overflow-hidden bg-[#1a2744] ${foto.aspect}`}
+              >
                 <Image
                   src={foto.src}
                   alt={foto.alt}
