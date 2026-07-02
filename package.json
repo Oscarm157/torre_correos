@@ -12,6 +12,7 @@
     "db:push": "drizzle-kit push",
     "db:seed": "node --env-file=.env.local scripts/seed.mjs",
     "db:migrate-contact-leads": "node --env-file=.env.local scripts/migrate-contact-leads.mjs",
+    "db:seed-demo-leads": "node --env-file=.env.local scripts/seed-demo-leads.mjs",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit"
   },
