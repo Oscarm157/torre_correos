@@ -31,8 +31,8 @@ export default function Ubicacion() {
           </div>
         </Reveal>
 
-        <Reveal y={36} className="relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#1a2744]/10 sm:aspect-[16/9]">
+        <Reveal y={36} className="relative mx-auto max-w-4xl">
+          <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#1a2744]/10 sm:aspect-[16/9] lg:aspect-[21/9]">
             <iframe
               title="Mapa de la ubicación de Torre Correos"
               src={`https://www.google.com/maps?q=${MAPS_QUERY}&z=15&output=embed`}
