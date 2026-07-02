@@ -8,6 +8,13 @@
       "when": 1782970485011,
       "tag": "0000_easy_maddog",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1782977343629,
+      "tag": "0001_dear_eddie_brock",
+      "breakpoints": true
     }
   ]
 }
