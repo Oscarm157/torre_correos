@@ -5,24 +5,34 @@ import { AnimatePresence, motion } from "motion/react";
 import { MapPin, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, EASE } from "./reveal";
+import { submitContact } from "@/app/actions/contact";
 
 /**
  * Contacto — familia de layout: split editorial (mensaje a la izquierda,
  * formulario a la derecha) sobre banda clara (crema), legible con max-width.
  *
- * Formulario UI-only con validación de cliente básica (required en nombre/email
- * + type=email). NO se conecta a la DB en esta tarea.
- * TODO: conectar a server action + tabla contact_leads (tarea aparte).
+ * Conectado a src/app/actions/contact.ts: inserta en `leads` (Fase 2 del CRM),
+ * con rate-limit y dedup por email.
  */
 const CAMPOS = "w-full rounded-none border border-[#1a2744]/20 bg-white px-4 py-3 font-body text-[0.9375rem] text-[#333333] placeholder:text-[#999999] transition-colors duration-200 focus:border-[#b8965c] focus:outline-none";
 
 export default function Contacto() {
   const [enviado, setEnviado] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [enviando, setEnviando] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: conectar a server action + tabla contact_leads (tarea aparte).
-    setEnviado(true);
+    setError(null);
+    setEnviando(true);
+    const formData = new FormData(e.currentTarget);
+    const result = await submitContact(formData);
+    setEnviando(false);
+    if (result.ok) {
+      setEnviado(true);
+    } else {
+      setError(result.error);
+    }
   }
 
   return (
@@ -152,11 +162,15 @@ export default function Contacto() {
                       className={`${CAMPOS} resize-none`}
                     />
                   </div>
+                  {error && (
+                    <p className="font-body text-[0.875rem] text-[#a84448]">{error}</p>
+                  )}
                   <Button
                     type="submit"
-                    className="h-12 w-full rounded-none bg-[#1a2744] px-8 font-body text-sm font-semibold tracking-[0.08em] text-[#f5f3ef] uppercase transition-colors duration-200 hover:bg-[#0f1729]"
+                    disabled={enviando}
+                    className="h-12 w-full rounded-none bg-[#1a2744] px-8 font-body text-sm font-semibold tracking-[0.08em] text-[#f5f3ef] uppercase transition-colors duration-200 hover:bg-[#0f1729] disabled:opacity-60"
                   >
-                    Quiero más información
+                    {enviando ? "Enviando…" : "Quiero más información"}
                   </Button>
                 </motion.form>
               )}
