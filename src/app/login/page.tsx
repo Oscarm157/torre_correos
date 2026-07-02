@@ -15,10 +15,10 @@ export default async function LoginPage() {
   if (me) redirect("/admin");
 
   return (
-    <main className="flex flex-1 items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-sm">
+    <main className="crm-root flex min-h-[100dvh] items-center justify-center bg-[var(--crm-bg)] px-4 py-12">
+      <Card className="crm-card-raised w-full max-w-sm border-none">
         <CardHeader>
-          <CardTitle>Iniciar sesión</CardTitle>
+          <CardTitle className="crm-h1">Iniciar sesión</CardTitle>
           <CardDescription>Entra con tu correo y contraseña.</CardDescription>
         </CardHeader>
         <CardContent>

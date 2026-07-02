@@ -12,10 +12,10 @@ export default async function ChangePasswordPage() {
   await requireUser();
 
   return (
-    <main className="flex flex-1 items-center justify-center px-4 py-12">
-      <Card className="w-full max-w-sm">
+    <main className="crm-root flex min-h-[100dvh] items-center justify-center bg-[var(--crm-bg)] px-4 py-12">
+      <Card className="crm-card-raised w-full max-w-sm border-none">
         <CardHeader>
-          <CardTitle>Cambiar contraseña</CardTitle>
+          <CardTitle className="crm-h1">Cambiar contraseña</CardTitle>
           <CardDescription>
             Define una contraseña nueva para continuar.
           </CardDescription>
