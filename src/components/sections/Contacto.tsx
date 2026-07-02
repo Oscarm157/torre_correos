@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { MapPin, Check } from "lucide-react";
+import { MapPin, Check, User, Mail, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, EASE } from "./reveal";
 import { submitContact } from "@/app/actions/contact";
@@ -69,6 +69,13 @@ export default function Contacto() {
         {/* Formulario */}
         <Reveal delay={0.1} y={32}>
           <div className="relative border border-[#1a2744]/10 bg-[#fefdfb] p-6 sm:p-8">
+            <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-[#b8965c]" />
+            <div className="mb-6 flex items-baseline justify-between border-b border-[#1a2744]/10 pb-5">
+              <p className="font-display text-xl text-[#1a2744]">Escríbenos</p>
+              <span className="font-body text-[0.6875rem] tracking-[0.14em] text-[#9a7a48] uppercase">
+                Torre Correos
+              </span>
+            </div>
             <AnimatePresence mode="wait">
               {enviado ? (
                 <motion.div
@@ -97,45 +104,50 @@ export default function Contacto() {
                   transition={{ duration: 0.25, ease: EASE }}
                   className="space-y-5"
                 >
-                  <div>
-                    <label
-                      htmlFor="nombre"
-                      className="mb-2 block font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
-                    >
-                      Nombre completo
-                    </label>
-                    <input
-                      id="nombre"
-                      name="nombre"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      placeholder="Tu nombre"
-                      className={CAMPOS}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="mb-2 block font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
-                    >
-                      Correo electrónico
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      placeholder="tucorreo@ejemplo.com"
-                      className={CAMPOS}
-                    />
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="nombre"
+                        className="mb-2 flex items-center gap-1.5 font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
+                      >
+                        <User className="size-3.5" strokeWidth={2} />
+                        Nombre completo
+                      </label>
+                      <input
+                        id="nombre"
+                        name="nombre"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        placeholder="Tu nombre"
+                        className={CAMPOS}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="mb-2 flex items-center gap-1.5 font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
+                      >
+                        <Mail className="size-3.5" strokeWidth={2} />
+                        Correo electrónico
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        placeholder="tucorreo@ejemplo.com"
+                        className={CAMPOS}
+                      />
+                    </div>
                   </div>
                   <div>
                     <label
                       htmlFor="telefono"
-                      className="mb-2 block font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
+                      className="mb-2 flex items-center gap-1.5 font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
                     >
+                      <Phone className="size-3.5" strokeWidth={2} />
                       Teléfono
                     </label>
                     <input
@@ -150,9 +162,10 @@ export default function Contacto() {
                   <div>
                     <label
                       htmlFor="mensaje"
-                      className="mb-2 block font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
+                      className="mb-2 flex items-center gap-1.5 font-body text-[0.75rem] font-semibold tracking-[0.12em] text-[#9a7a48] uppercase"
                     >
-                      Mensaje <span className="text-[#999999]">(opcional)</span>
+                      <MessageSquare className="size-3.5" strokeWidth={2} />
+                      Mensaje <span className="text-[#999999] normal-case">(opcional)</span>
                     </label>
                     <textarea
                       id="mensaje"
