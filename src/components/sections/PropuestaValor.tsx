@@ -22,7 +22,7 @@ const VALORES = [
   {
     n: "03",
     titulo: "Conectividad Estratégica",
-    desc: "Ubicación privilegiada con acceso a los puntos clave de la ciudad",
+    desc: "Ubicación privilegiada con acceso a los puntos clave de la ciudad. Ubicado en la Zona Platino, a 5 minutos de la Línea SENTRI de San Ysidro.",
   },
   {
     n: "04",
