@@ -1,9 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./reveal";
+
+const CAL_NAMESPACE = "cita-showroom";
+const CAL_LINK = "oscar-arredondo-fs6wzu/cita-showroom";
 
 const MAPS_LINK = "https://maps.app.goo.gl/NtT6mQSnUaLjRTPn9";
 
@@ -22,17 +27,21 @@ const ASESORAS = [
 
 /**
  * Agenda tu cita — familia de layout: banda CTA cinematográfica full-bleed
- * (rol Aker), imagen de calle oscurecida con overlay navy + contenido centrado.
- *
- * SIN Cal.com: el widget está roto en producción (404) y el link correcto llega
- * en otra tarea. Estado honesto: la CTA lleva a #contacto (no hay número de
- * WhatsApp confirmado en el repo). Se muestra la dirección real como referencia.
- * TODO: integrar Cal.com (o WhatsApp con número real) cuando Oscar entregue el link.
+ * (rol Aker), imagen de calle oscurecida con overlay navy. En `lg:` el
+ * contenido se parte en 2 columnas: copy/CTA a la izquierda, calendario de
+ * Cal.com embebido a la derecha (namespace/calLink reales de Oscar).
  *
  * "Botón de ubicación" pedido en la retro (PDF pág. 5): abre el link real de
  * Google Maps (mismo que la sección Ubicación).
  */
 export default function Agenda() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
+
   return (
     <section
       id="agenda"
@@ -49,22 +58,22 @@ export default function Agenda() {
       <div className="absolute inset-0 bg-[#0f1729]/80" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f1729] via-[#0f1729]/50 to-[#0f1729]/60" />
 
-      <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center px-5 py-24 text-center sm:px-8 sm:py-32">
-        <Reveal>
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-14 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
+        <Reveal className="text-center lg:text-left">
           <span className="font-body text-[0.75rem] tracking-[0.24em] text-[#d4b87a] uppercase">
             Agenda tu Cita
           </span>
           <h2 className="mt-3 font-display text-[clamp(2.5rem,6vw,4rem)] leading-tight font-medium text-[#f5f3ef]">
             Visita nuestras oficinas
           </h2>
-          <p className="mx-auto mt-5 max-w-lg font-body text-base leading-relaxed text-[#f5f3ef]/80 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-lg font-body text-base leading-relaxed text-[#f5f3ef]/80 sm:text-lg lg:mx-0">
             Selecciona la fecha y hora que mejor te convenga para conocer
             personalmente el proyecto.
           </p>
           <p className="mt-6 font-body text-[0.8125rem] tracking-[0.14em] text-[#d4b87a] uppercase">
             Av. Negrete 2117, Zona Centro, Tijuana, B.C.
           </p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
             <Button
               asChild
               className="h-12 rounded-none bg-[#b8965c] px-8 font-body text-sm font-semibold tracking-[0.08em] text-[#0f1729] uppercase transition-colors duration-200 hover:bg-[#d4b87a]"
@@ -85,7 +94,7 @@ export default function Agenda() {
 
           {/* Foto de asesoras pedida en la retro (PDF pág. 5): equipo real de
               Probien (probien.com.mx/agentes), no stock. */}
-          <div className="mt-14 flex flex-col items-center justify-center gap-8 border-t border-[#f5f3ef]/10 pt-10 sm:flex-row sm:gap-12">
+          <div className="mt-14 flex flex-col items-center justify-center gap-8 border-t border-[#f5f3ef]/10 pt-10 sm:flex-row sm:gap-12 lg:justify-start">
             {ASESORAS.map((a) => (
               <div key={a.nombre} className="flex items-center gap-3">
                 <div className="relative size-14 shrink-0 overflow-hidden rounded-full ring-1 ring-[#b8965c]/40">
@@ -97,6 +106,17 @@ export default function Agenda() {
                 </div>
               </div>
             ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1} className="w-full">
+          <div className="h-[520px] w-full overflow-hidden border border-[#f5f3ef]/15 bg-[#f5f3ef]/[0.03] sm:h-[560px]">
+            <Cal
+              namespace={CAL_NAMESPACE}
+              calLink={CAL_LINK}
+              style={{ width: "100%", height: "100%", overflow: "scroll" }}
+              config={{ layout: "month_view", useSlotsViewOnSmallScreen: "true" }}
+            />
           </div>
         </Reveal>
       </div>

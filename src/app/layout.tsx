@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { FeedbackWidget } from "@/components/site/FeedbackWidget";
+import { CalFloatingButton } from "@/components/site/CalFloatingButton";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <FeedbackWidget />
+        <CalFloatingButton />
       </body>
     </html>
   );
